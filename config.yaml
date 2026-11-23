@@ -1,0 +1,5 @@
+agents:
+  - name: test1
+    base_url: http://localhost:11434/v1
+    model: gemma:e2b
+    api_key: ollama
