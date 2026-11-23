@@ -1,19 +1,9 @@
-#CODE INSPIRED FROM https://docs.ollama.com/api/openai-compatibility
 from openai import OpenAI
+from vault_agent import Agent, agents
 
-client = OpenAI(
-    base_url='http://localhost:11434/v1/',
-    api_key='ollama',  #not necessary
-)
+for i in range(0, len(agents)):
+    agent = agents[i]
+    print(agent.say(f"Respond with only your name, which is {agent.name}"))
 
-chat_completion = client.chat.completions.create(# add chat/completion to the base_url (http post at ...11434/v1/chat/completions)
-    messages=[
-        {
-            'role': 'user',
-            'content': 'Say this is a test',
-        }
-    ],
-    model='gemma4:e2b',
-)
-print(chat_completion)
-print(chat_completion.choices[0].message.content)
+# test1 = agents[0]
+# print(test1.say(f"Respond with only your name, which is {test1.name}"))
