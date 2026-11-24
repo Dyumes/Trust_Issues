@@ -28,6 +28,8 @@
 
     https://developers.openai.com/api/reference/python
 
+    https://docs.python.org/3/library/asyncio-task.html#asyncio.gather
+
 3) Connect MCP -> to one model
 - TODO - Basic MCP server with one tool
 - TODO - Connect one agent
