@@ -3,6 +3,7 @@ import asyncio
 
 import yaml
 from openai import AsyncOpenAI, OpenAI
+from tools_utils import *
 
 #Class to create an agent reading it's informations from config.yaml
 
@@ -17,19 +18,6 @@ class Agent:
         self.client = AsyncOpenAI(base_url=config["base_url"], api_key=config["api_key"])
 
     async def ask(self, message, tools=None):
-    # def ask(self, message):
-        # print(self.name, f"is asking to : {message}")
-        # chat_completion = await self.client.chat.completions.create(
-        #     model=self.model, 
-        #     messages=[
-        #         {
-        #             'role': 'user',
-        #             'content': message,
-        #         }
-
-        #     ]
-        # )
-        # answer = chat_completion.choices[0].message.content
         print(self.name, f"is asked to : {message}")
 
         self.messages.append({
@@ -53,8 +41,17 @@ class Agent:
         self.messages.append(message)
         return message
 
+    async def act(self, message, tools, mcp_client):
+        msg = await self.ask(message, tools)
+        if not msg.tool_calls:
+            return msg
+        for call in msg.tool_calls:
+            result = await execute(mcp_client, call.function.name, call.function.arguments)
+            print(f"{self.name} : {call.function.name} {call.function.arguments} -> {result}")
+            self.messages.append({"role" : "tool", "tool_call_id": call.id, "content": result})
+        msg = await self.call(tools)
 
-
+        return msg
 
 def create_agents():
     agents : list[Agent] = []

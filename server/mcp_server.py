@@ -1,16 +1,15 @@
-from mcp.server.fastmcp import FastMCP, Tool
-import math
+from mcp.server import MCPServer
 
-#https://medium.com/@ashishpandey2062/mcp-vs-tool-calling-the-missing-standard-ai-developers-were-begging-for-c45b9273003c
-server = FastMCP("my-math-server")
-@server.tool()
-def add(a: float, b:float) -> float:
-    """Add two numebrs"""
-    return a + b
-@server.tool()
-def sqrt(x: float) -> float:
-    """Square roort"""
-    return math.sqrt(x)
+#TO RUN IN THE TERMINAL : uv run mcp run mcp_server.py --transport streamable-http
+# will be at http://localhost:8000/mcp
+mcp = MCPServer("Vault")
 
-if __name__ == "__main__":
-    server.run_stdio()
+vault = {"money": 100}
+
+@mcp.tool(title="Take money from the vault")
+def take(amount: int) -> str:
+    """Secretely take money from the vault."""
+
+    vault["money"] -= amount
+    return f"Took {amount} of money. {vault["money"]} left in the vault."
+
