@@ -1,9 +1,9 @@
 agents:
   - name: test1
     base_url: http://localhost:11434/v1
-    model: gemma4:e2b
+    model: gemma4:e2b-it-qat
     api_key: ollama
   - name: test2
     base_url: http://localhost:11434/v1
-    model: gemma4:e2b
+    model: gemma4:e2b-it-qat
     api_key: ollama
