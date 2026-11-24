@@ -7,3 +7,16 @@ agents:
     base_url: http://localhost:11434/v1
     model: gemma4:e2b-it-qat
     api_key: ollama
+  - name: test3
+    base_url: http://localhost:11434/v1
+    model: gemma4:e2b-it-qat
+    api_key: ollama
+  - name: test4
+    base_url: http://localhost:11434/v1
+    model: gemma4:e2b-it-qat
+    api_key: ollama
+  - name: test5
+    base_url: http://localhost:11434/v1
+    model: gemma4:e2b-it-qat
+    api_key: ollama
+
