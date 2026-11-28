@@ -4,12 +4,12 @@ from mcp.server import MCPServer
 # will be at http://localhost:8000/mcp
 mcp = MCPServer("Vault")
 
-vault = {"money": 100}
+vault = {"coins": 100}
 
 @mcp.tool(title="Take money from the vault")
 def take(amount: int) -> str:
     """Secretely take money from the vault."""
 
-    vault["money"] -= amount
-    return f"Took {amount} of money. {vault["money"]} left in the vault."
+    vault["coins"] -= amount
+    return f"I take {amount} coins. {vault["coins"]} left in the vault."
 

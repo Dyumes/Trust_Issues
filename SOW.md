@@ -17,7 +17,6 @@
 - Configurable base URL, model name and API key in config.yaml
 - Run sequentially several agents on the same model 
 - History per agent
-- TODO - MAYBE - Add a sys prompt per agent ? (role: guard /Thief/ Auditor) 
 
     Docs used :
 
@@ -55,8 +54,8 @@ SERVER SETTINGS :
 | gemma4:e2b-it-qat | 4096 | 5 | 1.9GB | 100% GPU | Yes | 15.4s | - |
 
 3) Connect MCP -> to one model
-- TODO - Basic MCP server with one tool
-- TODO - Connect one agent
+- Basic MCP server with one tool
+- Connect one agent
 
     Docs used:
 
@@ -64,5 +63,40 @@ SERVER SETTINGS :
 
     https://py.sdk.modelcontextprotocol.io/client/
 
-3) Connect A2A (basic rex exchanges)
-4) Game Context (rules, scalable on number of player) / Framework
+### 26.11.2026 -> 30.11.2026
+---
+4) Connect A2A (basic rex exchanges)
+
+5) Game Context (rules, scalable on number of player) / Framework
+
+Docs used :
+
+https://github.com/a2aproject/a2a-python
+
+https://github.com/a2aproject/a2a-samples
+
+
+## TO TEST
+- models : how 2B, how 2B with some 4B 
+how to compose the memory 
+
+- memory:
+->cross-round with isolated games (doesnt remmeber wehat happen)
+->cross-games with memory of the games
+-> find some ways to keep good info 
+
+- communication is:
+-> peer 2 peer + chat
+-> chat
+
+have some interface to show all of these (after all the backend)
+avidio, adem
+
+on a seperate page -> stats
+
+no matter the interface (Web, QT, ...)
+
+
+In this file -> everything that has bveen done + precise
+
+

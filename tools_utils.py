@@ -2,7 +2,6 @@ import json
 
 import anyio
 from mcp import Client
-from mcp.types import TextContent
 
 
 #List all the tools

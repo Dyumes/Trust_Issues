@@ -1,0 +1,4 @@
+{"type": "asked", "content": "Take 3 coins from the vault", "time": "2026-11-25T14:00:04.795"}
+{"type": "answered", "content": "", "tool_calls": [{"tool": "take", "args": "{\"amount\":3}"}], "time": "2026-11-25T14:00:08.982"}
+{"type": "tool_result", "tool": "take", "result": "I take 3 coins. 91 left in the vault.", "time": "2026-11-25T14:00:08.986"}
+{"type": "answered", "content": "I have taken 3 coins from the vault. 91 coins remain.", "tool_calls": [], "time": "2026-11-25T14:00:11.600"}
