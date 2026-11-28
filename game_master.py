@@ -25,7 +25,7 @@ async def send(agent_url, text):
     async with httpx.AsyncClient(timeout=TIMEOUT) as httpx_client:
         client = await create_client(
             agent=agent_card, 
-            client_config=ClientConfig(streaming=False),
+            client_config=ClientConfig(streaming=False, httpx_client=httpx_client),
         )
 
         # Wrap the request to a A2A message

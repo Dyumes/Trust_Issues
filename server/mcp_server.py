@@ -1,6 +1,6 @@
 from mcp.server import MCPServer
 
-#TO RUN IN THE TERMINAL : uv run mcp run mcp_server.py --transport streamable-http
+#TO RUN IN THE TERMINAL : uv run mcp run server/mcp_server.py --transport streamable-http
 # will be at http://localhost:8000/mcp
 mcp = MCPServer("Vault")
 
@@ -11,5 +11,5 @@ def take(amount: int) -> str:
     """Secretely take money from the vault."""
 
     vault["coins"] -= amount
-    return f"I take {amount} coins. {vault["coins"]} left in the vault."
+    return f"Done: You took {amount} coins. {vault["coins"]} left in the vault."
 
