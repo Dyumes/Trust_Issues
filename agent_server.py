@@ -20,6 +20,7 @@ from a2a.types import (
     TaskState,
 )
 from mcp import Client
+from mcp.types import Implementation
 from starlette.applications import Starlette
 from tools_utils import get_tools
 from vault_agent import Agent, config
@@ -55,7 +56,7 @@ class VaultAgentExecutor(AgentExecutor):
         # Collect the request from the content
         text = get_message_text(context.message)
         # Connect to MCP to get the different tools and act for the LLM agent
-        async with Client(MCP_URL) as mcp_client:
+        async with Client(MCP_URL, client_info=Implementation(name=self.agent.name, version="1.0")) as mcp_client:
             tools = await get_tools(mcp_client)
             reply = await self.agent.act(text, tools, mcp_client)
 

@@ -41,7 +41,7 @@ async def main():
     tasks = []
 
     for url in AGENT_URLS:
-        tasks.append(send(url, "Take 3 coins from the vault"))
+        tasks.append(send(url, "Read the public chat, if there is no message, say something."))
     results = await asyncio.gather(*tasks)
 
     for name, answer in results:
