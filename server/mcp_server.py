@@ -10,6 +10,7 @@ mcp = MCPServer("Vault")
 
 vault = {"coins": 100}
 public_chat = []
+open("logs/chat.jsonl", "w").close()
 
 def log_chat(player, message):
     event = {
@@ -29,7 +30,8 @@ def take(amount: int) -> str:
 
 @mcp.tool(title="Talk in the public chat")
 def say(message: str, context: Context) -> str:
-    """Say something to the public chat"""
+    """Post a message in the public chat -> This is the ONLY way the other players can hear you:
+    your normal text answers will never be shown to them"""
     player = context.session.client_params.client_info.name
     public_chat.append(f"{player}: {message}")
     print(f"[PUBLIC CHAT] {player}: {message}")

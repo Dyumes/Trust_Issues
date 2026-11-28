@@ -58,6 +58,7 @@ class VaultAgentExecutor(AgentExecutor):
         # Connect to MCP to get the different tools and act for the LLM agent
         async with Client(MCP_URL, client_info=Implementation(name=self.agent.name, version="1.0")) as mcp_client:
             tools = await get_tools(mcp_client)
+            print("TOOLS:", [t["function"]["name"] for t in tools])
             reply = await self.agent.act(text, tools, mcp_client)
 
         # Just for when the model decided to say absolutely NOTHING
